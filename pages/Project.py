@@ -76,16 +76,18 @@ def user_input(user_question):
     st.write("Reply: ", response["output_text"])
 
 def main():
-    st.set_page_config("Chat PDF")
-    st.header("Chat with PDF using Gemini💁")
-
-    user_question = st.text_input("Ask a Question from the PDF Files")
+    st.set_page_config(
+        page_title="App Content",
+        page_icon="🦾")
+    
+    st.header("Chat with your Documents")
+    user_question = st.text_input("Ask anything about your Documents ")
 
     if user_question:
         user_input(user_question)
     
     with st.sidebar:
-        st.title("Menu:")
+        st.title("Upload Section:")
         pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
         if st.button("Submit & Process"):
             with st.spinner("Processing..."):
